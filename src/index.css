@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+ --color-Primary-400: #FBB03F;
+ --color-Neutral-600: #B6B6B6;
+ --color-Neutral-1500: #333333;
+ --color-green-1600: #1fc16b;
+ --color-green-lite: var(--Colors-Green-Alpha-10, #1FC16B1A);
+ --color-danger-1600: #FB3748;
+ --color-danger-lite: #FB37481A;
+ --color-Primary-lite: #FFDB431A;
+ 
+
+}
+
+/* @theme {
+  --color-custom-500: #666;
+  --color-custom-600: black;
+  --color-white-500: #fff;
+  --color-black-500: #000;
+ 
+} */
+/*  */
+/*  */
+/*  */
+
+
+
+
+/*  */
+/*  */
+/*  */
+
+
+
+.custom-steps .ant-steps-item-finish .ant-steps-item-tail::after {
+  background-color: #22c55e !important; /* green-500 for completed steps */
+}
+
+
+/* Add these styles to your global CSS file or use styled-components/emotion */
+
+/* Override the DatePicker input styles */
+.ant-picker {
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ant-picker:focus, 
+.ant-picker-focused {
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Make sure the icon doesn't show (we're using our own) */
+.ant-picker-suffix {
+  display: none !important;
+}
+
+/* Style the dropdown calendar */
+.custom-datepicker-dropdown .ant-picker-panel-container {
+  border-radius: 8px !important;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05) !important;
+  width: 300px !important;
+  
+}
+
+/* Style for the selected date */
+.custom-datepicker-dropdown .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+  /* background-color: #1890ff !important; */
+  background-color: #1890ff !important;
+  border-radius: 4px !important;
+}
+
+/* Hover state for date cells */
+.custom-datepicker-dropdown .ant-picker-cell:hover .ant-picker-cell-inner {
+  background-color: #e6f7ff !important;
+}
