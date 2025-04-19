@@ -9,7 +9,7 @@ dayjs.extend(customParseFormat);
 
 const CustomTimePicker = ({ label = 'Select Time', placeholder = 'Select time', onChange }) => {
   return (
-    <div className='p-2 col-span-6 w-full'>
+    <div className=' col-span-6 w-full'>
       <label 
         htmlFor="timepicker" 
         className='font-[poppins]  border-Neutral-1500 font-medium placeholder:text-[20px] leading-[100%] tracking-[0] block mb-2'

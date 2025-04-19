@@ -12,11 +12,14 @@ import EmployeeDocumentDetails from './Pages/Employee/EmployeeDetails/EmployeeDo
 import EmployeeAttendenceDetails from './Pages/Employee/EmployeeDetails/EmployeeAttendenceDetails'
 import EmployeeTaskStationDetails from './Pages/Employee/EmployeeDetails/EmployeeTaskStationDetails'
 import EmployeToDoListDetails from './Pages/Employee/EmployeeDetails/EmployeeToDoListDetails'
+import WorkStation from './Pages/WorkStation/WorkStation'
+import { Toaster } from 'react-hot-toast'
 function App() {
   const router = createBrowserRouter([
     {index:true , element:<Login/>},
     {path:"/main/" , element:<Main/> , children:[
       {index:true , element:<Dashboard/>},
+      
       {path:"all-employee" , element:<AllEmployee/>},
       {path:"add-employee" , element:<AddEmployee/>},
       {path:"all-employee/details/" , element:<EmployeeDetails/> , children:[
@@ -27,7 +30,8 @@ function App() {
         {path:"id/tasks" , element:<EmployeeTaskStationDetails/>},
         {path:"id/toDoList" , element:<EmployeToDoListDetails/>}
 
-      ]}
+      ]},
+      {path:"workStations" , element:<WorkStation/>}
 
     ]}
   ])
@@ -35,6 +39,7 @@ function App() {
   return (
     <>
      <RouterProvider router={router}/>
+     <Toaster />
     </>
   )
 }

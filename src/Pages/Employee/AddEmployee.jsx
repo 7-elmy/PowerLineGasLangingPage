@@ -72,7 +72,7 @@ const AddEmployee = () => {
     
     // Step 3 doesn't need explicit validation as it's dynamic documents
   ];
-  let [docs , setDocs] = useState([])
+ 
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -84,6 +84,7 @@ const AddEmployee = () => {
       gender: "",
       nationality: "",
       address: "",
+      profilePic:"",
       city: "",
       nationalId: "",
       swiftCode: "",
@@ -98,45 +99,7 @@ const AddEmployee = () => {
       // Documents will be handled separately
     },
     // validationSchema: validationSchemas[current],
-    // onSubmit: (values) => {
-    //   // Combine form values with documents data
-    //   const formData = new FormData();
-      
-    //   // Add all form fields to FormData
-    //   Object.keys(values).forEach(key => {
-    //     formData.append(key, values[key]);
-    //   });
-
    
-    //   for (let pair of formData.entries()) {
-    //     console.log(`${pair[0]}:`, pair[1]);
-    //   }
-      
-      
-    //   // Add documents data
-    //   documents.forEach((doc, index) => {
-    //     if (doc.title) formData.append(`documents[${index}][title]`, doc.title);
-    //     if (doc.document) formData.append(`documents[${index}][file]`, doc.document);
-    //     if (doc.expiryDate1) formData.append(`documents[${index}][startDate]`, doc.expiryDate1);
-    //     if (doc.expiryDate2) formData.append(`documents[${index}][endDate]`, doc.expiryDate2);
-    //   });
-    //   console.log({formData});
-      
-      
-    //   // Send to API
-    //   // dispatch(apiRequest({
-    //   //   entity: "addEmployee",
-    //   //   url: "hr/employee/add",
-    //   //   method: "POST",
-    //   //   data: formData,
-    //   //   headers: {
-    //   //     'Content-Type': 'multipart/form-data'
-    //   //   }
-    //   // }));
-      
-    //   // message.success('Employee added successfully!');
-    //   // navigate("/main/all-employee/details/id");
-    // }
 
     // Inside your formik.onSubmit function:
 onSubmit: (values) => {
@@ -155,20 +118,30 @@ onSubmit: (values) => {
       formData.append(`documents[${index}][title]`, doc.title);
       
       // Add file if it exists
-      if (doc.document) {
-        formData.append(`documentsFiles_${index}`, doc.document);
-      }
-      
+      // if (doc.document) {
+      //   formData.append(`documentsFiles_${index}`, doc.document);
+      // }
+
+      documents.forEach((doc, i) => {
+        if (doc.document) {
+          // The key name with [] tells the server this is an array of files
+          formData.append(`documentsFiles_0[]`, doc.document);
+        }
+      });
       // Add dates if they exist
       if (doc.expiryDate1) {
-        formData.append(`documents[${index}][startDate]`, doc.expiryDate1);
+        formData.append(`documents[${index}][start]`, doc.expiryDate1);
       }
       
       if (doc.expiryDate2) {
-        formData.append(`documents[${index}][endDate]`, doc.expiryDate2);
+        formData.append(`documents[${index}][end]`, doc.expiryDate2);
       }
     }
   });
+
+ 
+
+
   
   // Log the form data for debugging
   console.log("Submitting form data:");
@@ -177,19 +150,23 @@ onSubmit: (values) => {
   }
   
   // Send to API
-  // dispatch(apiRequest({
-  //   entity: "addEmployee",
-  //   url: "hr/employee/add",
-  //   method: "POST",
-  //   data: formData,
-  //   headers: {
-  //     'Content-Type': 'multipart/form-data'
-  //   }
-  // }));
+  dispatch(apiRequest({
+    entity: "employees",
+    url: "hr/createEmployee",
+    method: "POST",
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  }));
   
   // message.success('Employee added successfully!');
   // navigate("/main/all-employee/details/id");
 }
+
+
+
+
   });
 
   const next = () => {
@@ -347,39 +324,7 @@ onSubmit: (values) => {
 
         {/* Navigation Buttons */}
         <div className="flex justify-center gap-5 items-center mt-6">
-          {current < stepInfo.length - 1 && (
-            <>
-              <button 
-                className="h-10 rounded-md border border-[#FBB03F] text-Primary-400 cursor-pointer w-[130px]"
-                onClick={() => navigate("/main/all-employee")}
-                type="button"
-              >
-                Cancel
-              </button>
-              <button 
-                className="h-10 rounded-md border border-[#FBB03F] bg-Primary-400 cursor-pointer text-white w-[130px]"
-                onClick={next}
-                type="button"
-              >
-                Next
-              </button>
-            </>
-          )}
-          
-          {current === stepInfo.length - 1 && (
-            <button 
-              type="button"
-              className="h-10 rounded-md border border-[#FBB03F] bg-Primary-400 cursor-pointer text-white w-[130px]"
-              onClick={() =>{ formik.handleSubmit()
-
-                navigate("/main/all-employee/details/id")
-              }}
-            >
-              Done
-            </button>
-          )}
-          
-          {current > 0 && (
+        {current > 0 && (
             <button
               type="button"
               className="h-10 rounded-md border border-[#FBB03F] text-Primary-400 cursor-pointer w-[130px]"
@@ -388,6 +333,41 @@ onSubmit: (values) => {
               Previous
             </button>
           )}
+     
+          {current < stepInfo.length - 1 && (
+            <>
+              <button 
+                className="h-10 rounded-md border border-[#FBB03F] bg-Primary-400 cursor-pointer text-white w-[130px]"
+                onClick={next}
+                type="button"
+              >
+                Next
+              </button>
+              <button 
+            className="h-10 rounded-md border border-[#FBB03F] text-Primary-400 cursor-pointer w-[130px]"
+            onClick={() => navigate("/main/all-employee")}
+            type="button"
+          >
+            Cancel
+          </button>
+            </>
+          )}
+          
+        
+          {current === stepInfo.length - 1 && (
+            <button 
+              type="button"
+              className="h-10 rounded-md border border-[#FBB03F] bg-Primary-400 cursor-pointer text-white w-[130px]"
+              onClick={() =>{ formik.handleSubmit()
+
+                 navigate("/main/all-employee/details/id")
+              }}
+            >
+              Done
+            </button>
+          )}
+          
+       
         </div>
       </div>
     </ConfigProvider>
@@ -395,5 +375,4 @@ onSubmit: (values) => {
 };
 
 export default AddEmployee;
-
 

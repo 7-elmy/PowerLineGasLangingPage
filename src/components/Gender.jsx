@@ -86,7 +86,7 @@ const FormWithDropdown = ({ icon, options, placeholder, label, value, onChange }
         <label className="font-poppins font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600">
           {label}
         </label>
-        <div className="relative mt-2">
+        <div className="relative ">
           <div
             className="h-[48px] gap-[10px] rounded-[8px] border px-[12px] border-Neutral-600 flex items-center justify-between cursor-pointer"
             onClick={toggleDropdown}

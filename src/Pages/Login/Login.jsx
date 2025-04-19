@@ -7,6 +7,8 @@ import * as Yup from 'yup';
 import { apiRequest } from '../../Redux/Apis/apiRequest';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
 // Extend Yup for phone or email validation
 Yup.addMethod(Yup.string, "phoneOrEmail", function (message) {
@@ -22,6 +24,7 @@ Yup.addMethod(Yup.string, "phoneOrEmail", function (message) {
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  
   const { login } = useSelector(state => state.api);
  let navigate = useNavigate()
   console.log({login});
@@ -37,14 +40,17 @@ export default function Login() {
     password: Yup.string().min(6, "Minimum 6 characters").required("password is required"),
   });
 
-  useEffect(() => {
-    if (login?.data?.status === 200) {
-      // Store token in session storage
-      sessionStorage.setItem("token", login?.data?.data?.authorization?.token);
-      // Navigate to the desired route
-      navigate("/main/all-employee");
-    }
-  }, [login, navigate]);
+  // useEffect(() => {
+  //   if (login?.data?.status === 200) {
+  //     // Store token in session storage
+  //     sessionStorage.setItem("token", login?.data?.data?.authorization?.token);
+  //     toast.success("success")
+  //     // Navigate to the desired route
+  //     navigate("/main/all-employee");
+  //   } else {
+  //     toast.error("error")
+  //   }
+  // }, [login, navigate]);
 
   return (
     <div className='min-h-screen bg-Primary-400 flex flex-col justify-center items-center px-4 py-8'>
@@ -67,15 +73,31 @@ export default function Login() {
         <Formik
           initialValues={{ phoneOrEmail: '', password: '' }}
           validationSchema={validationSchema}
-          onSubmit={(values, actions) => {
-            console.log("Submitted:", values);
-            dispatch(apiRequest({
-              entity: "login",
-              url: "hr/login",
-              method: "POST",
-              data: values
-            }));
-            actions.setSubmitting(true);
+          onSubmit={async(values, actions) => {
+           
+            // console.log("Submitted:", values);
+            // dispatch(apiRequest({
+            //   entity: "login",
+            //   url: "hr/login",
+            //   method: "POST",
+            //   data: values
+            // }));
+            // actions.setSubmitting(true);
+            await axios.post(`https://powerline-app.vercel.app/hr/login`,values).then(res=>{
+             
+              console.log(res);
+              sessionStorage.setItem("token", res.data?.authorization?.token);
+       toast.success(`${res.data.message}`)
+       // Navigate to the desired route
+       navigate("/main/");
+            }).catch(err=>{
+              console.log(err);
+              if(err.response.data.message =="Validation Error" || err.status ==500){
+                toast.error("Invalid Email or Password!!!")
+              }
+             
+              
+            })
            
           }}
         >
@@ -85,7 +107,7 @@ export default function Login() {
               {/* phoneOrEmail Field */}
               <div>
                 <label htmlFor="phoneOrEmail" className="font-poppins font-medium text-base md:text-lg text-Neutral-1500 block mb-1">
-                  phoneOrEmail
+                  Email
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -135,10 +157,10 @@ export default function Login() {
               <button
                 type="submit"
                 disabled={!(isValid && dirty)}
-                className={`w-full h-12 md:h-14 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center font-poppins font-semibold text-base md:text-lg text-center 
+                className={`relative w-full h-12 md:h-14 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center font-poppins font-semibold text-base md:text-lg text-center 
                 ${isValid && dirty ? 'bg-Primary-400 hover:bg-Primary-500 text-white' : 'bg-Primary-400/50 text-white cursor-not-allowed'}`}
               >
-                {isSubmitting ? "Logging in..." : "Login"}
+                {isSubmitting ?  <div className='flex items-center gap-1'> <div className="loader"></div></div> : "Login"}
               </button>
             </Form>
           )}

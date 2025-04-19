@@ -5,6 +5,7 @@ const apiSlice = createSlice({
     name: "api",
     initialState: {
       login: { data: null, loading: false, error: null },
+      employees: { data: null, loading: false, error: null }
      
     },
     reducers: {}, // No reducers needed since we're handling everything in `extraReducers`

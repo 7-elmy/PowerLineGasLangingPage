@@ -181,7 +181,7 @@ import { CustomDatePicker } from '../../../components/CustomPicker'
 import FormWithDropdown from '../../../components/Gender'
 import FileUploadInput from '../../../components/FileUpload_Input'
 
-const genderOptions = ['Male', 'Female', 'Non-binary', 'Prefer not to say'];
+const genderOptions = ['male', 'female', "other"];
 
 export default function AddEmployeeform1({setBorder= false, formik}) {
   let [selectGender , setSelectGender] = useState("")
@@ -189,14 +189,12 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
     formik?.setFieldValue('dateOfBirth', dateString);
   };
 
-  const handleGenderChange = (selectGender) => {
-    console.log({selectGender});
-    
-    formik?.setFieldValue('gender', selectGender);
-  };
+
 
   const handleFileUpload = (file) => {
-    formik?.setFieldValue('profileImage', file);
+    console.log({file});
+    
+    formik?.setFieldValue('profilePic', file);
   };
 
   // Helper function to show error messages
@@ -208,7 +206,7 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
 
   return (
     <section className={`pt-8 grid grid-cols-12 gap-6 ${setBorder== true ? "border border-Neutral-600 rounded-[12px] px-8 mx-3 pb-8" :""} `}>
-      <div className='p-2 col-span-6'>
+      <div className=' col-span-6'>
         <label htmlFor="name" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>Employees Name*</label>
         <div className='mt-2  h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
             <img src={person} alt="profile" />
@@ -226,13 +224,13 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
         </div>
         {getErrorMessage('name')}
       </div>
-      <div className='p-2 col-span-6'>
+      <div className=' col-span-6'>
         <label htmlFor="phone" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>Mobile Number*</label>
-        <div className='mt-2  h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
+        <div className='mt-2  relative h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
             <img src={phone} alt="phone" />
           
         <input 
-          type="text" 
+          type="number" 
           id="phone"
           name="phone"
           placeholder='Enter Mobile Number Employee'
@@ -241,17 +239,18 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
           onBlur={formik?.handleBlur}
           className=' w-full border-l-2 ps-3 border-Neutral-600 p-[6px] outline-none focus:outline-none font-[poppins] font-normal text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0]' 
         />
+        <div className='bg-white w-7 h-7  absolute top-3 right-2'></div>
         </div>
         {getErrorMessage('phone')}
       </div>
       {/*row 2 */}
-      <div className='p-2 col-span-6'>
+      <div className='col-span-6'>
         <label htmlFor="age" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>Age*</label>
-        <div className='mt-2  h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
+        <div className='mt-2  relative h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
             <img src={age}  alt="age" />
           
         <input 
-          type="text" 
+          type="number" 
           id="age"
           name="age"
           placeholder='Enter Employee Age'
@@ -260,16 +259,17 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
           onBlur={formik?.handleBlur}
           className='border-l-2 ps-3 w-full border-Neutral-600 p-[6px] outline-none focus:outline-none font-[poppins] font-normal text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0]' 
         />
+        <div className='bg-white w-7 h-7  absolute top-3 right-2'></div>
         </div>
         {getErrorMessage('age')}
       </div>
-      <div className='p-2 col-span-6'>
+      <div className='col-span-6'>
         <label htmlFor="email" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>Email Address*</label>
         <div className='mt-2  h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
             <img src={mail}  alt="email" />
           
         <input 
-          type="text"
+          type="email"
           id="email"
           name="email"
           placeholder='Enter Email Address Employee'
@@ -283,7 +283,7 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
       </div>
 
       {/* row 3 */}
-      <div className='p-2 col-span-12'>
+      <div className=' col-span-12'>
         <label htmlFor="password" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>Password*</label>
         <div className='mt-2  h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
             <img src={password}  alt="password" />
@@ -314,15 +314,7 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
       </div>
 
       <div className='col-span-6'>
-        {/* <FormWithDropdown 
-          icon={gender} 
-          options={genderOptions} 
-          label="Gender*"
-          onChange={handleGenderChange}
-          value={formik?.values?.gender}
-          setSelectGender={setSelectGender}
-          selectGender={selectGender}
-        /> */}
+     
       <FormWithDropdown 
   icon={gender} 
   options={genderOptions} 
@@ -335,7 +327,7 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
 
 
       {/* row 5 */}
-      <div className='p-2 col-span-6'>
+      <div className=' col-span-6'>
         <label htmlFor="nationality" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>Nationality*</label>
         <div className='mt-2  h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
             <img src={nationality}  alt="nationality" />
@@ -353,8 +345,8 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
         </div>
         {getErrorMessage('nationality')}
       </div>
-      <div className='p-2 col-span-6'>
-        <label htmlFor="address" className='font-[poppins] font-medium  placeholder:text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>Address*</label>
+      <div className=' col-span-6'>
+        <label htmlFor="address" className='font-[poppins] font-medium   placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>Address*</label>
         <div className='mt-2  h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
             <img src={address}  alt="address" />
           
@@ -373,7 +365,7 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
       </div>
 
       {/* row 6 - City field (Changed duplicated fields from the original) */}
-      <div className='p-2 col-span-6'>
+      <div className=' col-span-6'>
         <label htmlFor="city" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>City*</label>
         <div className='mt-2  h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
             <img src={city}  alt="city" />
@@ -397,13 +389,13 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
           image={image}
           onChange={handleFileUpload} 
         />
-        {getErrorMessage('profileImage')}
+        {getErrorMessage('profilePic')}
       </div>
 
       {/* row 8 */}
-      <div className='p-2 col-span-12'>
+      <div className=' col-span-12'>
         <label htmlFor="nationalId" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>National Id*</label>
-        <div className='mt-2  h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
+        <div className='mt-2 relative  h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
             <img src={cardId}  alt="cardId" />
           
         <input 
@@ -416,12 +408,13 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
           onBlur={formik?.handleBlur}
           className=' w-full border-l-2 ps-3 border-Neutral-600 p-[6px] outline-none focus:outline-none font-[poppins] font-normal text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0]' 
         />
+        <div className='bg-white w-7 h-7  absolute top-3 right-2'></div>
         </div>
         {getErrorMessage('nationalId')}
       </div>
 
       {/* row 9 */}
-      <div className='p-2 col-span-6'>
+      <div className=' col-span-6'>
         <label htmlFor="swiftCode" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>SWIFT Code*</label>
         <div className='mt-2  h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
             <img src={iBAN}  alt="IBAN" />
@@ -439,7 +432,7 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
         </div>
         {getErrorMessage('swiftCode')}
       </div>
-      <div className='p-2 col-span-6'>
+      <div className=' col-span-6'>
         <label htmlFor="IBAN" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>IBAN*</label>
         <div className='mt-2  h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600  flex items-center'>
             <img src={iBAN}  alt="IBAN" />

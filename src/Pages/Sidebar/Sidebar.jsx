@@ -13,6 +13,13 @@ import userprofile from "../../assets/sidbar/company logo.png"
 import station from "../../assets/sidbar/Gas Station.svg"
 import { IoMdSunny } from 'react-icons/io';
 import { Link, useNavigate } from 'react-router-dom';
+import automation from "../../assets/table/automation.svg"
+import roles from "../../assets/table/roles.svg"
+import maintenance from "../../assets/table/mantainance.svg"
+import supplies from "../../assets/table/supplies.svg"
+import message from "../../assets/table/messages.svg"
+import setting from "../../assets/table/Settings Icon.svg" 
+import { IoLogOutOutline } from 'react-icons/io5';
 export default function Sidebar() {
 
     const [activeItem, setActiveItem] = useState('hr');
@@ -30,7 +37,7 @@ export default function Sidebar() {
         //   icon: <BsGrid className="text-xl" />, 
          icon: <MdOutlineWindow className='text-xl ' />, 
           label: 'Over View', 
-          link: 'main/', 
+          link: '/main/', 
           hasSubmenu: false 
         },
         { 
@@ -38,7 +45,7 @@ export default function Sidebar() {
         //   icon: <HiOutlineUsers className="text-xl" />, 
           icon: <FiUsers className="text-xl " />, 
           label: 'HR', 
-          link:"main/all-employee",
+          link:"/main/all-employee",
           hasSubmenu: true,
           submenu: [
             { id: 'allEmployees', label: 'All Employees' },
@@ -48,7 +55,7 @@ export default function Sidebar() {
         },
         { 
           id: 'workStations',  
-          link:"workStations", 
+          link:"/main/workStations", 
           icon: <img src={station} alt="" />, 
           label: 'Work stations', 
           hasSubmenu: true,
@@ -60,51 +67,51 @@ export default function Sidebar() {
         },
         { 
           id: 'rolesPermissions', 
-          link:"rolesPermissions",
-          icon: <RiUserSettingsLine className="text-xl" />, 
+          link:"/main/rolesPermissions",
+          icon: <img src={roles} alt="" />, 
           label: 'Roles & Permissions', 
           hasSubmenu: false 
         },
         { 
           id: 'automation', 
-          link:"automation",
-          icon: <MdOutlineWorkOutline className="text-xl" />, 
+          link:"/main/automation",
+          icon: <img src={automation} alt="" />, 
           label: 'AutoMation', 
           subtext: '(Soon)',
           hasSubmenu: false 
         },
         { 
           id: 'maintenance', 
-          link: 'maintenance', 
-          icon: <MdOutlineWorkOutline className="text-xl" />, 
-          label: 'Maintenance', 
+          link:'/main/maintenance', 
+          icon: <img src={maintenance} alt="" />, 
+          label:'Maintenance', 
           hasSubmenu: false 
         },
         { 
           id: 'tasksStations', 
-          link: 'tasksStations', 
+          link:'/main/tasksStations', 
           icon: <BiTask className="text-xl" />, 
           label: 'Tasks Stations', 
           hasSubmenu: false 
         },
         { 
           id: 'suppliesRequest', 
-          link: 'suppliesRequest', 
-          icon: <TbTruckDelivery className="text-xl" />, 
+          link: '/main/suppliesRequest', 
+          icon: <img src={supplies} alt="" />, 
           label: 'Supplies Request', 
           hasSubmenu: false 
         },
         { 
           id: 'messages', 
-          link: 'messages', 
-          icon: <FiMessageSquare className="text-xl" />, 
+          link: '/main/messages', 
+          icon: <img src={message} alt="" />, 
           label: 'Messages', 
           hasSubmenu: false 
         },
         { 
           id: 'settings', 
-          link: 'settings', 
-          icon: <FiSettings className="text-xl" />, 
+          link: '/main/settings', 
+          icon: <img src={setting} alt="" />, 
           label: 'Setting', 
           hasSubmenu: true,
           submenu: [
@@ -113,6 +120,13 @@ export default function Sidebar() {
             { id: 'systemSettings', label: 'System Settings' }
           ] 
         },
+        { 
+          id: 'logout', 
+          link: '/', 
+          icon: <IoLogOutOutline className='size-6' />, 
+          label: 'LogOut', 
+          hasSubmenu: false 
+        }
       ];
 
        // Toggle submenu expansion
@@ -187,9 +201,15 @@ export default function Sidebar() {
                 {sidebarItems.map((item) => (
                   <div key={item.id}>
                     {/* Main menu item */}
-                    <Link to={`/${item.link}`} 
+                    <Link to={`${item.link}`} 
                       className={`flex  items-center px-4 py-3 cursor-pointer  ${activeItem === item.id && !item.hasSubmenu ? 'bg-Primary-400 !text-white ' : 'text-Neutral-1500'}`}
-                      onClick={() => handleMenuItemClick(item.id, item.hasSubmenu)}
+                      onClick={() => {handleMenuItemClick(item.id, item.hasSubmenu)
+
+                        if(item.label=='LogOut'){
+                          sessionStorage.removeItem("token")
+
+                        }
+                      }}
                     >
                       <div className={`mr-3 ${activeItem === item.id && !item.hasSubmenu ? ' text-white' : 'text-Neutral-600'}`}>
                         {item.icon}

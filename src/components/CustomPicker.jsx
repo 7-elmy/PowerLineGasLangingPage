@@ -6,7 +6,7 @@ import mailIcon from '../assets/table/🔽 Icon.png';
 
 export const CustomDatePicker = ({ onChange, label, placeholder }) => {
   return (
-    <div className='p-2 col-span-6 w-full'>
+    <div className=' col-span-6 w-full'>
       <label 
         htmlFor="datepicker" 
         className='font-[poppins]  font-medium text-[16px] leading-[100%] tracking-[0] block mb-2'
