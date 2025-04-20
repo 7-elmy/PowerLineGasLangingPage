@@ -10,7 +10,7 @@ import { RiDeleteBinLine } from 'react-icons/ri';
 
 export default function AddEmployeeform3({ 
   setBorder = false, 
-  setButton = false, 
+  setButton = true, 
   formik ,
   documents,
   setDocuments
