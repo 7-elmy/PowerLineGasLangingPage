@@ -181,6 +181,8 @@ import { CustomDatePicker } from '../../../components/CustomPicker'
 import FormWithDropdown from '../../../components/Gender'
 import FileUploadInput from '../../../components/FileUpload_Input'
 
+
+
 const genderOptions = ['male', 'female', "other"];
 
 export default function AddEmployeeform1({setBorder= false, formik}) {
@@ -230,7 +232,7 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
             <img src={phone} alt="phone" />
           
         <input 
-          type="number" 
+          type="text" 
           id="phone"
           name="phone"
           placeholder='Enter Mobile Number Employee'
@@ -384,10 +386,11 @@ export default function AddEmployeeform1({setBorder= false, formik}) {
         {getErrorMessage('city')}
       </div>
       <div className='col-span-6'>
-        <FileUploadInput 
+        <FileUploadInput
           label={"Image*"} 
           image={image}
           onChange={handleFileUpload} 
+        
         />
         {getErrorMessage('profilePic')}
       </div>

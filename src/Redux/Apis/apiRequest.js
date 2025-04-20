@@ -19,7 +19,8 @@ export const apiRequest = createAsyncThunk(
           ...headers,
         },
       });
-
+      console.log(response);
+ 
       if (response.status === 200 || response.status === 201) {
         console.log(response);
           // if(entity ="wishlist"){

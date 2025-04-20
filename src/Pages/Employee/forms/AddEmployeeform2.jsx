@@ -15,7 +15,7 @@ import { LiaDownloadSolid } from 'react-icons/lia'
 
 const roles = ["67bd53a8c292360b3a0d94b3", "Customer", "Editor", "Viewer"];
 
-export default function AddEmployeeform2({setBorder =false , formik , showEmployeeId=false , imageList=false}) {
+export default function AddEmployeeform2({setBorder =false , formik , showEmployeeId=false }) {
     const handleDateChange = (date, dateString) => {
         console.log('Selected Date:', dateString);
         // Handle your date change logic here
@@ -132,25 +132,7 @@ export default function AddEmployeeform2({setBorder =false , formik , showEmploy
 <CustomDatePicker label={"Residence expiry Date*"}  placeholder={"Select Residence expiry Date"} onChange={handleresidenceExpiryDateChange}/>                      
 
 </div>
-{imageList== true? <div className="col-span-12">
-<label htmlFor="" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>Images*</label>
-<div className='border border-Neutral-600 rounded-[8px] flex items-center gap-3 my-4 py-3'>
-  <div className='border-r-2 my-2  flex justify-center items-center border-Neutral-600 w-[50px] h-[40px]'>
 
-  <img src={image} alt="image" />
-  </div>
-  <div className='w-[200px] h-[200px] bg-Neutral-600 rounded-lg'></div>
-  <div className='w-[200px] h-[200px] bg-Neutral-600 rounded-lg'></div>
-  <div className='w-[200px] h-[200px] bg-Neutral-600 rounded-lg'></div>
-  <div className='w-[200px] h-[200px] bg-Neutral-600 rounded-lg'></div>
-  <div className='w-[200px] h-[200px] bg-Neutral-600 rounded-lg'></div>
-
-  <div className='border-l-2 border-Neutral-600 h-[180px] flex justify-center items-center p-3'>
-  <LiaDownloadSolid className='size-5 text-Neutral-1500' />
-
-  </div>
-</div>
-</div> :""}
 
     </div>
   )

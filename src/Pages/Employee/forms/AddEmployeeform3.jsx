@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import title from "../../../assets/table/pajamas_title.png";
 import image from "../../../assets/table/gallery.png";
-import FileUploadInput from '../../../components/FileUpload_Input';
+import FileUploadInput, { FileUploadInputMultiple } from '../../../components/FileUpload_Input';
 import { CustomDatePicker } from '../../../components/CustomPicker';
-import { FaPlus } from 'react-icons/fa';
 import { FiPlus } from 'react-icons/fi';
+import { LiaDownloadSolid } from 'react-icons/lia';
 
 export default function AddEmployeeform3({ 
   setBorder = false, 
@@ -13,6 +13,7 @@ export default function AddEmployeeform3({
   formik ,
   documents,
   setDocuments
+  , imageList=false
 }) {
   // State to track document sections
   const [documentSections, setDocumentSections] = useState([
@@ -91,8 +92,26 @@ export default function AddEmployeeform3({
               </button>
             </div>
           )}
-          
-          <div className=' col-span-6'>
+          {imageList== true? <div className="col-span-12">
+<label htmlFor="" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>Files*</label>
+<div className='border border-Neutral-600 rounded-[8px] flex items-center gap-3 my-4 py-3'>
+  <div className='border-r-2 my-2  flex justify-center items-center border-Neutral-600 w-[50px] h-[40px]'>
+
+  <img src={image} alt="image" />
+  </div>
+  <div className='w-[200px] h-[200px] bg-Neutral-600 rounded-lg'></div>
+  <div className='w-[200px] h-[200px] bg-Neutral-600 rounded-lg'></div>
+  <div className='w-[200px] h-[200px] bg-Neutral-600 rounded-lg'></div>
+  <div className='w-[200px] h-[200px] bg-Neutral-600 rounded-lg'></div>
+  <div className='w-[200px] h-[200px] bg-Neutral-600 rounded-lg'></div>
+
+  <div className='border-l-2 border-Neutral-600 h-[180px] flex justify-center items-center p-3'>
+  <LiaDownloadSolid className='size-5 text-Neutral-1500' />
+
+  </div>
+</div>
+</div> :""}
+          <div className={`${imageList == true ? "col-span-12":"col-span-6" } `}>
             <label htmlFor={`title-${section.id}`} className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0]'>Title*</label>
             <div className='mt-2 h-[48px] gap-[10px] rounded-[8px] border border-solid p-[12px] border-Neutral-600 flex items-center'>
               <img src={title} alt="profile" />
@@ -106,14 +125,26 @@ export default function AddEmployeeform3({
               />
             </div>
           </div>
-          
-          <div className='col-span-6'>
-            <FileUploadInput 
-              label={"Documents*"} 
-              image={image}
-              onChange={(file) => handleDocumentUpload(section.id, file)}
-            />
-          </div>
+      
+         {imageList ? "" : <div className='col-span-6'>
+           
+           {/* <FileUploadInput 
+ label={"Documents*"} 
+ image={image}
+ onChange={(files) => handleDocumentUpload(section.id, files)}
+ multiple={true}
+/> */}
+
+<FileUploadInputMultiple
+
+label={"Documents*"} 
+name="documents"
+image={image}
+multiple={true}
+// onChange={(files) => console.log("Selected files:", files)}
+onChange={(files) => handleDocumentUpload(section.id, files)}
+/>
+         </div>}
           
           <div className='col-span-6'>
             <CustomDatePicker 

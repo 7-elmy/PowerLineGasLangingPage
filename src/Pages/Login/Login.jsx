@@ -36,7 +36,7 @@ export default function Login() {
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   const validationSchema = Yup.object({
-    phoneOrEmail: Yup.string().phoneOrEmail("Invalid email or phone number").required("phoneOrEmail is required"),
+    phoneOrEmail: Yup.string().phoneOrEmail("Invalid email ").required("Email is required"),
     password: Yup.string().min(6, "Minimum 6 characters").required("password is required"),
   });
 
