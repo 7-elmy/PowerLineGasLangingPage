@@ -4,16 +4,18 @@ import title from "../../../assets/table/pajamas_title.png";
 import image from "../../../assets/table/gallery.png";
 import FileUploadInput, { FileUploadInputMultiple } from '../../../components/FileUpload_Input';
 import { CustomDatePicker } from '../../../components/CustomPicker';
-import { FiPlus } from 'react-icons/fi';
+import { FiDelete, FiPlus } from 'react-icons/fi';
 import { LiaDownloadSolid } from 'react-icons/lia';
+import { RiDeleteBinLine } from 'react-icons/ri';
 
 export default function AddEmployeeform3({ 
   setBorder = false, 
-  setButton = true, 
+  setButton = false, 
   formik ,
   documents,
   setDocuments
   , imageList=false
+
 }) {
   // State to track document sections
   const [documentSections, setDocumentSections] = useState([
@@ -92,6 +94,18 @@ export default function AddEmployeeform3({
               </button>
             </div>
           )}
+         {imageList==true ?  <div className='col-span-12  flex justify-end w-full items-center mt-6'>
+        <button 
+          type="button"
+          className=' flex justify-center items-center gap-3 text-Primary-400 p-3 border-Primary-400 border rounded-md font-[Poppins] font-normal text-[16px] leading-[100%] tracking-[0%]
+transition-colors'
+        >
+          <RiDeleteBinLine className='size-5 text-Primary-400' />
+          
+         Delete Document
+        </button>
+      </div>:""}
+        
           {imageList== true? <div className="col-span-12">
 <label htmlFor="" className='font-[poppins] font-medium text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0] '>Files*</label>
 <div className='border border-Neutral-600 rounded-[8px] flex items-center gap-3 my-4 py-3'>
