@@ -101,68 +101,6 @@ const AddEmployee = () => {
     // validationSchema: validationSchemas[current],
    
 
-    // Inside your formik.onSubmit function:
-// onSubmit: (values) => {
-//   // Create a new FormData object
-//   const formData = new FormData();
-  
-//   // Add all form fields to FormData
-//   Object.keys(values).forEach(key => {
-//     formData.append(key, values[key]);
-//   });
-  
-//   // Add documents data correctly for API
-//   documents.forEach((doc, index) => {
-//     // Only add document if it has a title
-//     if (doc.title) {
-//       formData.append(`documents[${index}][title]`, doc.title);
-      
-//       // Add file if it exists
-//       if (doc.document) {
-//         formData.append(`documentsFiles_${index}`, doc.document);
-//       }
-
-//       // documents.forEach((doc, i) => {
-//       //   if (doc.document) {
-//       //     // The key name with [] tells the server this is an array of files
-//       //     formData.append(`documentsFiles_0[]`, doc.document);
-//       //   }
-//       // });
-//       // Add dates if they exist
-//       if (doc.expiryDate1) {
-//         formData.append(`documents[${index}][start]`, doc.expiryDate1);
-//       }
-      
-//       if (doc.expiryDate2) {
-//         formData.append(`documents[${index}][end]`, doc.expiryDate2);
-//       }
-//     }
-//   });
-
- 
-
-
-  
-//   // Log the form data for debugging
-//   console.log("Submitting form data:");
-//   for (let pair of formData.entries()) {
-//     console.log(`${pair[0]}:`, pair[1]);
-//   }
-  
-//   // Send to API
-//   dispatch(apiRequest({
-//     entity: "employees",
-//     url: "hr/createEmployee",
-//     method: "POST",
-//     data: formData,
-//     headers: {
-//       'Content-Type': 'multipart/form-data'
-//     }
-//   }));
-  
-//   // message.success('Employee added successfully!');
-//   // navigate("/main/all-employee/details/id");
-// }
 
 onSubmit: (values) => {
   const formData = new FormData();
@@ -180,19 +118,19 @@ onSubmit: (values) => {
       formData.append(`documents[${index}][title]`, doc.title);
 
       // Support single or multiple files
-      const files = Array.isArray(doc.document) ? [doc.document] : [doc.document];
+      // const files = Array.isArray(doc.document) ? [doc.document] : [doc.document];
 
-      files.forEach((file, fileIndex) => {
-        console.log(file);
+      // files.forEach((file, fileIndex) => {
+      //   console.log(file);
         
-        if (file) {
-          // formData.append(`documents[${index}][files][]`, file);
-          formData.append(`documentsFiles_${index}`, file)
-        }
-      });
-      //       if (doc.document) {
-      //   formData.append(`documentsFiles_${index}`, doc.document);
-      // }
+      //   if (file) {
+      //     // formData.append(`documents[${index}][files][]`, file);
+      //     formData.append(`documentsFiles_${index}`, file)
+      //   }
+      // });
+            if (doc.document) {
+        formData.append(`documentFiles_${index}`, doc.document);
+      }
 
       if (doc.expiryDate1) {
         formData.append(`documents[${index}][start]`, doc.expiryDate1);
@@ -211,15 +149,15 @@ onSubmit: (values) => {
   }
 
   // Send to API
-  // dispatch(apiRequest({
-  //   entity: "employees",
-  //   url: "hr/createEmployee",
-  //   method: "POST",
-  //   data: formData,
-  //   headers: {
-  //     'Content-Type': 'multipart/form-data'
-  //   }
-  // }));
+  dispatch(apiRequest({
+    entity: "employees",
+    url: "hr/createEmployee",
+    method: "POST",
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  }));
 }
 
 
@@ -418,7 +356,7 @@ onSubmit: (values) => {
               className="h-10 rounded-md border border-[#FBB03F] bg-Primary-400 cursor-pointer text-white w-[130px]"
               onClick={() =>{ formik.handleSubmit()
 
-                  navigate("/main/all-employee/details/id")
+                  // navigate("/main/all-employee/details/id")
               }}
             >
               Done

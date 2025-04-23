@@ -26,7 +26,7 @@ export const apiRequest = createAsyncThunk(
           // if(entity ="wishlist"){
           //   fun()
           // }
-        return { entity, data: response }; // Store API response under the correct entity
+        return { entity, data: response.data }; // Store API response under the correct entity
       } else {
         return rejectWithValue(
           response.data?.message || "Something went wrong"

@@ -142,22 +142,14 @@ transition-colors'
       
          {imageList ? "" : <div className='col-span-6'>
            
-           {/* <FileUploadInput 
+           <FileUploadInput 
  label={"Documents*"} 
  image={image}
  onChange={(files) => handleDocumentUpload(section.id, files)}
  multiple={true}
-/> */}
-
-<FileUploadInputMultiple
-
-label={"Documents*"} 
-name="documents"
-image={image}
-multiple={true}
-// onChange={(files) => console.log("Selected files:", files)}
-onChange={(files) => handleDocumentUpload(section.id, files)}
 />
+
+
          </div>}
           
           <div className='col-span-6'>

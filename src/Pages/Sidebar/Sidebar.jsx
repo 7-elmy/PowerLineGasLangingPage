@@ -8,7 +8,7 @@ import { BiTask } from 'react-icons/bi';
 import { TbTruckDelivery } from 'react-icons/tb';
 import { FiSettings, FiMessageSquare, FiUsers } from 'react-icons/fi';
 import { BsGrid } from 'react-icons/bs';
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.svg"
 import userprofile from "../../assets/sidbar/company logo.png"
 import station from "../../assets/sidbar/Gas Station.svg"
 import { IoMdSunny } from 'react-icons/io';

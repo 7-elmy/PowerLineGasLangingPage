@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.svg";
 import { AiOutlineMail, AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { MdLockOutline } from 'react-icons/md';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
