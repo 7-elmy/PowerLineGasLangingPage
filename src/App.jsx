@@ -1,4 +1,5 @@
 import "./App.css";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 import Dashboard from "./Pages/Dashboard/Dashboard";
@@ -15,6 +16,7 @@ import EmployeToDoListDetails from "./Pages/Employee/EmployeeDetails/EmployeeToD
 import WorkStation from "./Pages/WorkStation/WorkStation";
 import { Toaster } from "react-hot-toast";
 import AddStation from "./Pages/WorkStation/AddStation";
+import Maintenance from "./Pages/Maintenance/Maintenance";
 function App() {
   const router = createBrowserRouter([
     { index: true, element: <Login /> },
@@ -43,6 +45,7 @@ function App() {
         },
         { path: "workStations", element: <WorkStation /> },
         { path: "add-station", element: <AddStation /> },
+        { path: "maintenance", element: <Maintenance /> },
       ],
     },
   ]);

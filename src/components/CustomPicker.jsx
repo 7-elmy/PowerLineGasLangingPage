@@ -1,8 +1,9 @@
 
 
 import React from 'react';
-import { DatePicker } from 'antd';
 import mailIcon from '../assets/table/🔽 Icon.png';
+import { DatePicker } from 'antd';
+
 
 export const CustomDatePicker = ({ onChange, label, placeholder }) => {
   return (
@@ -38,4 +39,11 @@ export const CustomDatePicker = ({ onChange, label, placeholder }) => {
     </div>
   );
 };
+
+
+
+
+
+
+
 

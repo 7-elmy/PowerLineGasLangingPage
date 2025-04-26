@@ -338,7 +338,7 @@ export default function AddEmployeeform1({ setBorder = false, formik }) {
             value={formik?.values?.IBAN}
             onChange={formik?.handleChange}
             onBlur={formik?.handleBlur}
-            className=" w-full border-l-2 ps-3 border-Neutral-600 p-[6px] outline-none focus:outline-none font-[poppins] font-normal text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0]"
+            className="ps-3 w-full  text-Neutral-600 border-Neutral-600 p-[6px] outline-none focus:outline-none font-[poppins] font-normal text-[16px] placeholder:text-[14px] placeholder:text-Neutral-600 leading-[100%] tracking-[0]"
           />
         </div>
         {getErrorMessage("IBAN")}
