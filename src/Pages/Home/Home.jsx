@@ -1,6 +1,6 @@
 import React from "react";
 import home from "../../assets/ImageHome.svg";
-import icon from "../../assets/icon.png";
+import icon from "../../assets/four.png";
 
 export default function Home() {
   return (
@@ -25,7 +25,7 @@ export default function Home() {
       </div>
 
       <div className="col-span-12 md:col-span-3 space-y-3 border border-Neutral-600 rounded p-3">
-        <img src={icon} alt="" />
+        <img src={icon} alt="1" />
         <p className="font-inter font-medium text-[26px] leading-[150%] tracking-[0px]">
           Services
         </p>
@@ -35,7 +35,7 @@ export default function Home() {
         </p>
       </div>
       <div className="col-span-12 md:col-span-3 space-y-3 border border-Neutral-600 rounded p-3">
-        <img src={icon} alt="" />
+        <img src={icon} alt="2" />
         <p className="font-inter font-medium text-[26px] leading-[150%] tracking-[0px]">
           Services
         </p>
@@ -45,7 +45,7 @@ export default function Home() {
         </p>
       </div>
       <div className="col-span-12 md:col-span-3 space-y-3 border border-Neutral-600 rounded p-3">
-        <img src={icon} alt="" />
+        <img src={icon} alt="3" />
         <p className="font-inter font-medium text-[26px] leading-[150%] tracking-[0px]">
           Services
         </p>
@@ -55,7 +55,7 @@ export default function Home() {
         </p>
       </div>
       <div className="col-span-12 md:col-span-3 space-y-3 border border-Neutral-600 rounded p-3">
-        <img src={icon} alt="" />
+        <img src={icon} alt="4" />
         <p className="font-inter font-medium text-[26px] leading-[150%] tracking-[0px]">
           Services
         </p>
