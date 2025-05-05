@@ -1,47 +1,106 @@
-import React from 'react'
-import { AiOutlineSearch } from 'react-icons/ai'
-import userprofile from "../../assets/sidbar/company logo.png"
-import { IoMdSunny } from 'react-icons/io'
-import { FaMoon } from 'react-icons/fa'
+import React, { useState } from "react";
+import logo from "../../assets/logo.svg";
+import { CiSearch } from "react-icons/ci";
+import { TbWorld } from "react-icons/tb";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("Home");
+
+  const links = ["Home", "Our Services", "Our Branches", "About Us", "Contact Us"];
+
+  const handleClick = (link) => {
+    setActiveLink(link);
+  };
+
   return (
-    <section className=' bg-white border-b-1 border-gray-300 sticky top-0 right-0 left-0 z-40'>
-      <div className="  p-5 flex justify-between items-center ">
-              <div className="   ">
-                <div className="w-[400px]  relative">
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    className="font-poppins h-[40px] font-medium text-[12px] leading-[100%] tracking-[0%] align-middle w-full pl-10 pr-4 py-2 border border-gray-300 rounded-[8px] focus:outline-none   "
-                  />
-                  <AiOutlineSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg" />
-                </div>
-              </div>
-                <div className="flex items-center space-x-3">
-                 <div className="flex items-center px-4  border-gray-200">
-                                 <div className="w-10 h-10 rounded-[10px] bg-gray-300 overflow-hidden flex-shrink-0">
-                                   <img src={userprofile} alt="User" className="w-full h-full object-cover" />
-                                 </div>
-                                 <div className="ml-3 space-y-2">
-                                   {/* <div className=" text-Neutral-600 flex gap-1 items-center font-poppins font-medium text-[12px] leading-[100%] tracking-[0px] text-right capitalize"><span>Good Morning</span> <span className='pt-0.5'><IoMdSunny  className="text-Primary-400"/></span></div> */}
-                                   <div className="text-Neutral-600 flex gap-1 items-center font-poppins font-medium text-[12px] leading-[100%] tracking-[0px] text-right capitalize">
-  <span>
-    {new Date().getHours() >= 5 && new Date().getHours() < 18 
-      ? "Good Morning" 
-      : "Good Evening"}
-  </span> 
-  <span className='pt-0.5'>
-    {new Date().getHours() >= 5 && new Date().getHours() < 18 
-      ? <IoMdSunny className="text-Primary-400"/> 
-      : <FaMoon className="text-blue-950"/>}
-  </span>
-</div>
-                                   <div className=" font-poppins font-semibold text-[16px] text-Neutral-1500 leading-[100%] tracking-[0%] text-right capitalize">Ahmed Hossam</div>
-                                 
-                                 </div>
-                               </div>
-                </div>
-              </div>
-    </section>
-  )
+    <div className="w-full">
+      {/* Top Bar */}
+      <div className="h-[60px] flex justify-between items-center px-4 md:px-8">
+        <img src={logo} alt="logo" className="h-8 w-auto" />
+
+        {/* Search Input - hidden on small screens */}
+        <div className="hidden md:block rounded-[8px] p-2 border border-Primary-400 relative w-[300px]">
+          <input
+            type="text"
+            className="outline-none w-full font-[Poppins] placeholder:font-[Poppins] text-base leading-[100%] tracking-[0%] capitalize"
+            placeholder="search"
+          />
+          <div className="absolute top-3 right-2">
+            <CiSearch className="text-Primary-400 size-5" />
+          </div>
+        </div>
+
+        {/* Language Button - hidden on small screens */}
+        <button className="hidden md:flex items-center text-Primary-400 gap-2 font-[Cairo] border border-Primary-400 rounded-[4px] px-3 py-2 text-sm">
+          <TbWorld className="text-Primary-400 size-5" />
+          اللغة العربية
+        </button>
+
+        {/* Mobile Menu Icon */}
+        <div className="md:hidden">
+          <button onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <FaTimes className="text-Primary-400 size-6" /> : <FaBars className="text-Primary-400 size-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Second Navbar */}
+
+        <div className="bg-[#E9AB3C1A]">
+      {/* Desktop Links */}
+      <div className="hidden md:flex h-[60px] justify-center items-center gap-5">
+        {links.map((item) => (
+          <a
+            key={item}
+            href={`#${item}`}
+            onClick={() => handleClick(item)}
+            className={`px-4 py-2 rounded text-center font-[Poppins] text-base capitalize ${
+              activeLink === item
+                ? "bg-Primary-400 text-white"
+                : "text-Primary-400 bg-transparent hover:bg-Primary-100"
+            }`}
+          >
+            {item}
+          </a>
+        ))}
+      </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden flex flex-col items-center gap-3 py-4 px-4">
+          <div className="w-full">
+            <input
+              type="text"
+              className="w-full border border-Primary-400 rounded-[8px] px-3 py-2 mb-2 font-[Poppins]"
+              placeholder="search"
+            />
+          </div>
+
+          <button className="flex items-center text-Primary-400 gap-2 font-[Cairo] border border-Primary-400 rounded-[4px] px-3 py-2 text-sm w-full justify-center">
+            <TbWorld className="text-Primary-400 size-5" />
+            اللغة العربية
+          </button>
+
+          {links.map((item) => (
+            <a
+              key={item}
+              href={`#${item}`}
+              onClick={() => handleClick(item)}
+              className={`px-4 py-2 w-full text-center rounded font-[Poppins] text-base capitalize ${
+                activeLink === item
+                  ? "bg-Primary-400 text-white"
+                  : "text-Primary-400 bg-transparent hover:bg-Primary-100"
+              }`}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+    </div>
+  );
 }

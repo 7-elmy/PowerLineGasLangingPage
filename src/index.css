@@ -3,7 +3,7 @@
 
 
 @theme {
- --color-Primary-400: #FBB03F;
+ --color-Primary-400: #E9AB3C;
  --color-Neutral-600: #B6B6B6;
  --color-Neutral-1500: #333333;
  --color-green-1600: #1fc16b;
@@ -14,6 +14,10 @@
  
 
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 /* @theme {
   --color-custom-500: #666;
