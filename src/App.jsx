@@ -8,7 +8,7 @@ import Main from "./Pages/Main";
 function App() {
   const router = createBrowserRouter([
     { index: true, element: <Main /> },
-    // { path: "all-employee", element: <AllEmployee /> },
+
   ]);
 
   return (

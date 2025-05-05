@@ -5,15 +5,16 @@ import FutureVision from "./Future/FutureVision";
 import Network from "./Network/Network";
 import ContactUs from "./ContactUs/ContactUs";
 import Footer from "./Footer/Footer";
-import Services from "./Services/Services";
+import Ser_vices from "./Ser_vices/Ser_vices";
+
 
 export default function Main() {
   return (
     <div>
       <Navbar />
       <Home />
-      <Services />
-      <FutureVision />
+<Ser_vices/>
+        <FutureVision />
       <Network />
       <ContactUs />
       <Footer />
