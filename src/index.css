@@ -18,6 +18,9 @@ html {
   scroll-behavior: smooth;
 }
 
+.services {
+  background-image: url("./assets/services.jpg");
+}
 
 /* @theme {
   --color-custom-500: #666;

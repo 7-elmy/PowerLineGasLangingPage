@@ -4,9 +4,9 @@ import icon from "../../assets/four.png";
 
 export default function Home() {
   return (
-    <div id="Home" className="grid grid-cols-12 gap-4 p-4 mt-8">
-      <div className="col-span-12 md:col-span-6 my-3">
-        <p className="font-[Poppins] font-medium text-center md:text-left text-[40px] md:text-[58px] leading-[120%] tracking-[0px]">
+    <div id="Home" className="grid grid-cols-12 gap-4 p-8 mt-8">
+      <div className="col-span-12 md:col-span-6 my-3 flex flex-col justify-around ">
+        <p className="font-[Poppins] font-medium text-center md:text-left text-[40px] md:text-[45px] leading-[120%] tracking-[0px]">
           Welcome to <span className="text-Primary-400 animate-pulse">Power Line Gas</span>{" "}
           Petroleum services that suit you
         </p>
@@ -16,7 +16,7 @@ export default function Home() {
           porta vitae eget neque aliquet gravida sed sit. Enim vitae ut posuere
           sed commodo diam velit odio.
         </p>
-        <button className="text-white bg-Primary-400 rounded-md p-3 px-8">
+        <button className="text-white w-[180px] bg-Primary-400 rounded-md p-3 px-8">
           Contact Us
         </button>
       </div>

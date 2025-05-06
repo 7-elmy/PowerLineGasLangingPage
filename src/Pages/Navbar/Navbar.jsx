@@ -16,9 +16,9 @@ export default function Navbar() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full  bg-white">
       {/* Top Bar */}
-      <div className="h-[60px] flex justify-between items-center px-4 md:px-8">
+      <div className="h-[60px] flex justify-between items-center px-4 md:px-8 bg-white">
         <img src={logo} alt="logo" className="h-8 w-auto" />
 
         {/* Search Input - hidden on small screens */}

@@ -3,9 +3,11 @@ import container1 from "../../assets/Container.png";
 import container2 from "../../assets/Container1.png";
 import logo from "../../assets/Vector (1).png";
 import { Link } from "react-router-dom";
+import { FaFacebook, FaInstagramSquare, FaTwitter } from "react-icons/fa";
 export default function Footer() {
   return (
-    <div className="grid grid-cols-12">
+   <div>
+     <div className="grid grid-cols-12 w-[90%] mx-auto">
       <div className="col-span-12 md:col-span-6">
         <div className="p-3">
           <img src={logo} alt="" />
@@ -92,5 +94,37 @@ export default function Footer() {
         <img src={container2} alt="" />
       </div>
     </div>
+
+    <footer className="grid grid-cols-12 gap-3 bg-[linear-gradient(90deg,_#E9AB3C_0%,_rgba(233,171,60,0)_100%)]  p-3 ">
+
+      <div className="col-span-10 pt-2 ps-12">
+
+        <div className="flex items-center gap-8">
+          <p className="font-poppins font-normal text-white text-[14px] leading-[100%] tracking-[0%] capitalize">@2025 Sam Company Rights Reserved.</p>
+          <p className="font-poppins font-normal text-white text-[14px] leading-[100%] tracking-[0%] capitalize">Terms & Condition</p>
+          <p className="font-poppins font-normal text-white text-[14px] leading-[100%] tracking-[0%] capitalize">Privacy & Policy</p>
+        </div>
+
+      </div>
+
+      <div className="col-span-2 flex items-center gap-8">
+        <div className="bg-Primary-400 flex justify-center items-center rounded-full w-[30px] h-[30px]">
+        <FaInstagramSquare  className="text-white" />
+      
+        </div>
+        <div className="bg-Primary-400 flex justify-center items-center rounded-full w-[30px] h-[30px]">
+
+      <FaFacebook className="text-white" />
+        </div>
+        <div className="bg-Primary-400 flex justify-center items-center rounded-full w-[30px] h-[30px]">
+        <FaTwitter  className="text-white"/>
+    
+        </div>
+      </div>
+
+
+
+    </footer>
+   </div>
   );
 }

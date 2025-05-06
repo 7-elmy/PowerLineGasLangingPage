@@ -4,7 +4,7 @@ import send from "../../assets/fa_send.png";
 import star from "../../assets/icon-park-solid_five-star-badge.png";
 export default function FutureVision() {
   return (
-    <div id="Our Branches">
+    <div id="Our Branches" className="p-8">
       <h2 className="font-[Poppins] my-6 font-semibold text-[48px] leading-[100%] tracking-[0%] text-center capitalize">
         Future <span className="text-Primary-400">vision</span>
       </h2>

@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 export default function ContactUs() {
   return (
-    <div id="Contact Us" className="py-8">
+    <div id="Contact Us" className="p-8 md:p-12">
       <h1 className="font-poppins py-4 font-semibold text-[48px] leading-[100%] tracking-[0%] text-center capitalize">
         Contact <span className="text-Primary-400">Us</span>
       </h1>
