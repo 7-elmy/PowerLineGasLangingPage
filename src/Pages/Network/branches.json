@@ -1,0 +1,198 @@
+[
+    {
+        "id": 1,
+        "name": "بن هشبل خميس مشيط",
+        "short_name": "سلامة",
+        "location_url": "https://maps.app.goo.gl/mwxPFbc7g8wNyFp19?g_st=iw",
+        "status": "يعمل"
+    },
+    {
+        "id": 2,
+        "name": "خميس مشيط احد رفيدة",
+        "short_name": "خميس",
+        "location_url": "https://maps.app.goo.gl/wLZMvNT2MxKfBxZS8?g_st=iw",
+        "status": "يعمل"
+    },
+    {
+        "id": 3,
+        "name": "ينبع الصناعية البحر",
+        "short_name": "كورنيش",
+        "location_url": "https://maps.app.goo.gl/RW4WHZ4cMRnEXTGr9",
+        "status": "صيانة"
+    },
+    {
+        "id": 4,
+        "name": "الصفا ينبع",
+        "short_name": "صفا",
+        "location_url": "https://maps.app.goo.gl/H9gyMN8ENUMvCvJX8?g_st=ic",
+        "status": "يعمل"
+    },
+    {
+        "id": 5,
+        "name": "نجران",
+        "short_name": "نجران",
+        "location_url": "https://maps.app.goo.gl/4Ud7pu9da9zbkJ5PA?g_st=iw",
+        "status": "يعمل"
+    },
+    {
+        "id": 6,
+        "name": "الإدارة - مكتب",
+        "short_name": "",
+        "location_url": "https://maps.app.goo.gl/mb8ksc7HnHgn8B4y5?g_st=ic",
+        "status": "الرئيسي"
+    },
+    {
+        "id": 7,
+        "name": "محطة بهجة الطائف",
+        "short_name": "بهجة",
+        "location_url": "https://maps.app.goo.gl/pNLvTUrJo4r4jtwL7?g_st=iw",
+        "status": "يعمل"
+    },
+    {
+        "id": 8,
+        "name": "الريان الطائف",
+        "short_name": "الريان",
+        "location_url": "https://maps.app.goo.gl/YW1bNPDwWSAiXNfA9?g_st=iw",
+        "status": "يعمل"
+    },
+    {
+        "id": 9,
+        "name": "جبرا الطائف",
+        "short_name": "جبرا",
+        "location_url": "21°18'09.4\"N 40°25'56.1\"E",
+        "status": "يعمل"
+    },
+    {
+        "id": 10,
+        "name": "النزهه الطائف",
+        "short_name": "النزهة",
+        "location_url": "https://maps.app.goo.gl/EnRtk9SyVH27wtp46?g_st=iw",
+        "status": "يعمل"
+    },
+    {
+        "id": 11,
+        "name": "نفط فيل بارق عسير",
+        "short_name": "بارق",
+        "location_url": "https://maps.app.goo.gl/1zNgrH1mQANEb2pH8",
+        "status": "يعمل"
+    },
+    {
+        "id": 12,
+        "name": "صفوان عسير",
+        "short_name": "صفوان",
+        "location_url": "https://maps.app.goo.gl/tzngiVzLrCoM5JXF6?g_st=ic",
+        "status": "يعمل"
+    },
+    {
+        "id": 13,
+        "name": "محطة الرفيدي جده",
+        "short_name": "بور سيتي",
+        "location_url": "https://maps.app.goo.gl/JZmM4HkfGHeWN7Tn8?g_st=ic",
+        "status": "يعمل"
+    },
+    {
+        "id": 14,
+        "name": "طريق المدينة ابيار",
+        "short_name": "ابيار",
+        "location_url": "https://maps.app.goo.gl/rPT89LkzKN1S4Whw8?g_st=ic",
+        "status": "يعمل كامل pro"
+    },
+    {
+        "id": 15,
+        "name": "طريق المدينة فوزان",
+        "short_name": "فوزان",
+        "location_url": "https://maps.app.goo.gl/5vqyxq1vtLMao878A?g_st=ic",
+        "status": "يعمل"
+    },
+    {
+        "id": 16,
+        "name": "مكه الشوقيه",
+        "short_name": "الشوقية",
+        "location_url": "https://maps.app.goo.gl/9PZHA2tVKbARzY9B9?g_st=ic",
+        "status": "يعمل"
+    },
+    {
+        "id": 17,
+        "name": "المركاض",
+        "short_name": "المركاض",
+        "location_url": "https://maps.app.goo.gl/pY93ZrfUuTKpr4yD8?g_st=ic",
+        "status": "يعمل"
+    },
+    {
+        "id": 18,
+        "name": "قنا",
+        "short_name": "قنا",
+        "location_url": "https://maps.app.goo.gl/JKNKXi95aMEvUtcx7?g_st=ic",
+        "status": "يعمل"
+    },
+    {
+        "id": 19,
+        "name": "جميل",
+        "short_name": "جميل",
+        "location_url": "https://maps.app.goo.gl/GWDrygnjiFudpfdTA",
+        "status": "يعمل"
+    },
+    {
+        "id": 20,
+        "name": "تربة",
+        "short_name": "تربة",
+        "location_url": "https://maps.app.goo.gl/LYDtk4adXXXJV41dA",
+        "status": "يعمل"
+    },
+    {
+        "id": 21,
+        "name": "جاندي",
+        "short_name": "جاندي",
+        "location_url": "https://maps.app.goo.gl/UTSFCsvjFkjrLET79",
+        "status": "يعمل"
+    },
+    {
+        "id": 22,
+        "name": "هاذني",
+        "short_name": "هاذني",
+        "location_url": "https://maps.app.goo.gl/DpHzV6dguyuPxagM9",
+        "status": "يعمل"
+    },
+    {
+        "id": 23,
+        "name": "زهرة",
+        "short_name": "زهرة",
+        "location_url": "https://maps.app.goo.gl/kQS8E5ZTRdhkvV9d6",
+        "status": "يعمل"
+    },
+    {
+        "id": 24,
+        "name": "الهيئة الملكية",
+        "short_name": "",
+        "location_url": "https://maps.app.goo.gl/t4WoC9epb8PWoBN59",
+        "status": "موقع كامل"
+    },
+    {
+        "id": 25,
+        "name": "الطائف الحوية",
+        "short_name": "الفهد",
+        "location_url": "",
+        "status": "تحت انشاء"
+    },
+    {
+        "id": 26,
+        "name": "الأربعين",
+        "short_name": "الأربعين",
+        "location_url": "https://maps.app.goo.gl/5Y3phTrEGUJ6teGm9",
+        "status": "يعمل"
+    },
+    {
+        "id": 27,
+        "name": "الوزارية",
+        "short_name": "الوزارية",
+        "location_url": "https://maps.app.goo.gl/yK2seccUduJVxirs6",
+        "status": "يعمل"
+    },
+    {
+        "id": 28,
+        "name": "محطة طريق القنفذة",
+        "short_name": "السمو",
+        "location_url": "https://maps.app.goo.gl/ry9XxXuHef3soa416",
+        "status": "يعمل"
+    }
+]

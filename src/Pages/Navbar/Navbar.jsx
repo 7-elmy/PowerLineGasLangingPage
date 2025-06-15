@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("Home");
+  const [activeLink, setActiveLink] = useState("الرئيسيه");
 
-  const links = ["Home", "Our Services", "Our Branches", "About Us", "Contact Us"];
+  const links = ["الرئيسيه", "الخدمات", "الفروع", "من نكون", "تواصل معنا"];
 
   const handleClick = (link) => {
     setActiveLink(link);
@@ -22,7 +22,7 @@ export default function Navbar() {
         <img src={logo} alt="logo" className="h-8 w-auto" />
 
         {/* Search Input - hidden on small screens */}
-        <div className="hidden md:block rounded-[8px] p-2 border border-Primary-400 relative w-[300px]">
+        {/* <div className="hidden md:block rounded-[8px] p-2 border border-Primary-400 relative w-[300px]">
           <input
             type="text"
             className="outline-none w-full font-[Poppins] placeholder:font-[Poppins] text-base leading-[100%] tracking-[0%] capitalize"
@@ -31,13 +31,7 @@ export default function Navbar() {
           <div className="absolute top-3 right-2">
             <CiSearch className="text-Primary-400 size-5" />
           </div>
-        </div>
-
-        {/* Language Button - hidden on small screens */}
-        <button className="hidden md:flex items-center text-Primary-400 gap-2 font-[Cairo] border border-Primary-400 rounded-[4px] px-3 py-2 text-sm">
-          <TbWorld className="text-Primary-400 size-5" />
-          اللغة العربية
-        </button>
+        </div> */}
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
@@ -71,18 +65,13 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden flex flex-col items-center gap-3 py-4 px-4">
-          <div className="w-full">
+          {/* <div className="w-full">
             <input
               type="text"
               className="w-full border border-Primary-400 rounded-[8px] px-3 py-2 mb-2 font-[Poppins]"
               placeholder="search"
             />
-          </div>
-
-          <button className="flex items-center text-Primary-400 gap-2 font-[Cairo] border border-Primary-400 rounded-[4px] px-3 py-2 text-sm w-full justify-center">
-            <TbWorld className="text-Primary-400 size-5" />
-            اللغة العربية
-          </button>
+          </div> */}
 
           {links.map((item) => (
             <a

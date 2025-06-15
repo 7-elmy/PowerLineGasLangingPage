@@ -4,18 +4,16 @@ import send from "../../assets/fa_send.png";
 import star from "../../assets/icon-park-solid_five-star-badge.png";
 export default function FutureVision() {
   return (
-    <div id="Our Branches" className="p-8">
+    <div id="من نكون" className="p-8">
       <h2 className="font-[Poppins] my-6 font-semibold text-[48px] leading-[100%] tracking-[0%] text-center capitalize">
-        Future <span className="text-Primary-400">vision</span>
+          <span className="text-Primary-400">اهدافنا</span>
       </h2>
 
       <p className="font-[Poppins] font-normal text-Neutral-600 text-[14px] leading-relaxed tracking-[0%] text-center capitalize">
-        About SAM Fuel Company , SAM Fuel Company is a leading Saudi company
-        founded in 1446 AH (corresponding to 2024 AD). It seeks to provide
-        comprehensive and distinguished solutions in the field of automotive and
-        passenger services. The company is driven by a clear vision based on
-        owning and operating integrated centers located in strategic locations,
-        ensuring easy access and a seamless experience for road travelers.
+        زيادة عدد المحطات التي تديرها الشركة ، بما يلبّي احتياجات المسافرين في مختلف المناطق.
+        توسيع نطاق التغطية الجغرافية في كافة أنحاء المملكة، لضمان وصول الخدمات إلى أكبر شريحة ممكنة من العملاء.
+        بناء شراكات استراتيجية وتحقيق التكامل مع الشركاء الرئيسيين، بهدف تعزيز جودة الخدمات وتطويرها باستمرار.
+        إعداد خطط التعاقب ومتابعة التطوير المستمر، لضمان استدامة الأداء والتميز في تقديم الخدمات.
       </p>
 
       <div className="grid grid-cols-12 md:gap-8 px-8 py-4 ">
@@ -24,15 +22,11 @@ export default function FutureVision() {
             <img src={scape} alt="" />
           </div>
           <p className="text-center py-6 font-poppins font-medium text-[24px] leading-[100%] tracking-[0%]  capitalize">
-            Our Vision
+            رؤيتنا
           </p>
 
           <p class="font-[Poppins] text-Neutral-600  text-center p-3 font-normal text-[14px] leading-relaxed tracking-[0%]  capitalize">
-            SAM aims to achieve leadership in operating fuel stations and
-            service centers, strengthening its presence in the local market,
-            while contributing to the Kingdom's Vision 2030. It also seeks to
-            provide community services that contribute to improving the quality
-            of life for the community.
+            ترمي شركة سام  إلى تحقيق الريادة في تشغيل محطات الوقود ومراكز الخدمة، وتعزيز حضورها في السوق المحلية، بالتوازي مع الإسهام في رؤية المملكة 2030. كما تسعى لتقديم خدمات مجتمعية تساهم في الارتقاء بجودة الحياة للمجتمع
           </p>
         </div>
         <div className="col-span-12 md:col-span-4 border border-e-Neutral-600 rounded-md relative mt-12">
@@ -40,15 +34,12 @@ export default function FutureVision() {
             <img src={send} alt="" />
           </div>
           <p className="text-center py-6 font-poppins font-medium text-[24px] leading-[100%] tracking-[0%]  capitalize">
-            Our Values
+            قيمنا
           </p>
 
           <p class="font-[Poppins] text-Neutral-600  text-center p-3 font-normal text-[14px] leading-relaxed tracking-[0%]  capitalize">
-            SAM aims to achieve leadership in operating fuel stations and
-            service centers, strengthening its presence in the local market,
-            while contributing to the Kingdom's Vision 2030. It also seeks to
-            provide community services that contribute to improving the quality
-            of life for the community.
+            الجودة ورفع معايير السلامة عن طريق إعداد المخططات الإنشائية المدروسة والتي تعتمد على السلامة والرقابة الدورية على جميع مايخص السلامة
+
           </p>
         </div>
         <div className="col-span-12 md:col-span-4 border border-e-Neutral-600 rounded-md relative mt-12">
@@ -56,15 +47,12 @@ export default function FutureVision() {
             <img src={star} alt="" />
           </div>
           <p className="text-center py-6 font-poppins font-medium text-[24px] leading-[100%] tracking-[0%]  capitalize">
-            Mission
+            الرسالة
           </p>
 
           <p class="font-[Poppins] text-Neutral-600  text-center p-3 font-normal text-[14px] leading-relaxed tracking-[0%]  capitalize">
-            SAM aims to achieve leadership in operating fuel stations and
-            service centers, strengthening its presence in the local market,
-            while contributing to the Kingdom's Vision 2030. It also seeks to
-            provide community services that contribute to improving the quality
-            of life for the community.
+            سعى إلى توفير مجموعة متكاملة من الخدمات لقائدي المركبات والمسافرين، سواء داخل المدن أو خارجها، بما يضمن رضا العملاء ويعزّز القيمة المضافة.
+
           </p>
         </div>
       </div>
